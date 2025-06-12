@@ -67,6 +67,9 @@
             echo        '<a href="deletar_jogo.php?id_jogo=';
             echo            $jogo_atual['id_jogo'];
             echo        '" class="btn btn-outline-danger btn-sm">X  </a>';
+            echo        '<a href="editar_jogo.php?id_jogo=';
+            echo            $jogo_atual['id_jogo'];
+            echo        '" class="btn btn-outline-danger btn-sm">editar</a>';
             echo    '</td>';
             echo '</tr>';
         }

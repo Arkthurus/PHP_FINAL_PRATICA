@@ -5,7 +5,7 @@
         exit;
     }
 
-    $id_jogo = (int)$_GET['id_jogo']; // id da tarefa vindo via GET
+    $id_jogo = (int)$_GET['id_jogo']; // id do jogo vindo via GET
     require_once 'conexao.php';
 
     $conn = conectar_banco();

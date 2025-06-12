@@ -8,7 +8,7 @@
 </head>
 <body class="container">
     
-    <h1>ATT PRATICA FINAL - Meus Jogos - HOME</h1>
+    <h1>ATT PRATICA FINAL - Meus Jogos - Login</h1>
 
     <h2>Informe os dados para login:</h2>
     
@@ -44,7 +44,7 @@
 
     </form>
     <br>
-    <a href="cadastrarUser.php"><button>Casatrar Novo Usuario</button></a>
+    <a href="cadastrarUser.php"><button class="btn btn-success">Cadastrar Novo Usuario</button></a>
 
 </body>
 </html>
