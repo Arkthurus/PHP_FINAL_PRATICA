@@ -13,14 +13,15 @@
     }
 
     $jogo = $_POST['jogo']; // jogo vindo do form (POST)
+    $nota = $_POST['nota']; // nota vindo do form
     $id   = $_SESSION['id']; // id vindo sa sessão (SESSION)
 
     require_once 'conexao.php';
 
     $conn = conectar_banco();
 
-    $sql = "INSERT INTO tb_jogos (jogo, usuario_id) 
-            VALUES (?, ?)";
+    $sql = "INSERT INTO tb_jogos (jogo, nota, usuario_id) 
+            VALUES (?, ?, ?)";
 
     $stmt = mysqli_prepare($conn, $sql);
 
@@ -29,7 +30,7 @@
         exit;
     }
 
-    if(!mysqli_stmt_bind_param($stmt, 'si', $jogo, $id)) {
+    if(!mysqli_stmt_bind_param($stmt, 'sii', $jogo, $nota, $id)) {
         header('location:home.php?code=3');
         exit;
     }

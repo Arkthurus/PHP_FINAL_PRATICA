@@ -11,10 +11,10 @@
 
     <h1>ATT PRATICA FINAL - Meus Jogos</h1>
 
-    <h2>Bem-vindo, <?= $_SESSION['usuario']; ?>!</h2>
+    <h2>Bem-vindo, <?= $_SESSION['usuario']; ?>!</h2><br>
 
     <p>
-        <a href="logout.php">Logout</a>
+        <a href="logout.php"><button  class="btn btn-primary btn-sm">Voltar</button></a>
     </p>
 
     <form action="cadastrar_jogo.php" method="post">
@@ -22,10 +22,15 @@
         <p>
             <label for="jogo">Nome do Jogo: </label>
             <input type="text" name="jogo" id="jogo">   
-            <button type="submit" class="btn btn-primary btn-sm">Cadastrar</button>
         </p>
-
+        <p>
+            <label for="nota">Nota do Jogo: </label>
+            <input type="text" name="nota" id="nota" style="margin-left: 10px;">
+        </p>
+        <button type="submit" class="btn btn-primary btn-sm">Cadastrar</button>
     </form>
+    <br>
+    <br>
 
     <?php 
 
@@ -40,7 +45,7 @@
         $id = $_SESSION['id'];
 
         // TODO : EXIBIR TAREFAS DO USUÁRIO LOGADO
-        $sql = "SELECT id_jogo, jogo FROM tb_jogos 
+        $sql = "SELECT id_jogo, jogo, nota FROM tb_jogos 
                 WHERE usuario_id = $id";
 
         $resultado = mysqli_query($conn, $sql);
@@ -64,15 +69,18 @@
             echo '<tr>';
             echo    '<td>'.$jogo_atual['jogo'].'</td>';
             echo    '<td>';
+            echo    '<td> Nota: '.$jogo_atual['nota'].'</td>';
+            echo    '<td>';
             echo        '<a href="deletar_jogo.php?id_jogo=';
             echo            $jogo_atual['id_jogo'];
-            echo        '" class="btn btn-outline-danger btn-sm">X  </a>';
+            echo        '" class="btn btn-outline-danger btn-sm" style="margin-right: 10px;">X</a>';
             echo        '<a href="editar_jogo.php?id_jogo=';
             echo            $jogo_atual['id_jogo'];
-            echo        '" class="btn btn-outline-danger btn-sm">editar</a>';
+            echo        '" class="btn btn-outline-success btn-sm">editar</a>';
             echo    '</td>';
             echo '</tr>';
         }
+        
 
         echo '</table>';
         echo '</div>';

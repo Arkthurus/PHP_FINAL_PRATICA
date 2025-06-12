@@ -9,8 +9,9 @@ function form_em_branco() {
 }
 
 function jogo_em_branco() {
-    return empty($_POST['jogo']);
+    return empty($_POST['jogo'] || empty($_POST['nota']));
 }
+
 
 function tratar_erros () {
 
