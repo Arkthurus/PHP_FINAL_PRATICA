@@ -61,7 +61,7 @@
             <label for="jogo" class="form-label">Nome do Jogo</label>
             <input type="text" class="form-control" id="jogo" name="jogo" value="<?= htmlspecialchars($jogo['jogo']) ?>" required><br>
             <label for="nota" class="form-label">Nota do Jogo</label>
-            <input type="number" class="form-control" id="nota" name="nota" value="<?= htmlspecialchars($jogo['nota'])?>" required>
+            <input type="number" class="form-control" id="nota" name="nota" value="<?= htmlspecialchars($jogo['nota'])?>" >
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
         <a href="home.php" class="btn btn-secondary">Cancelar</a>

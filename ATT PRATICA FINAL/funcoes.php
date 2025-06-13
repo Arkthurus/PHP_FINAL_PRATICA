@@ -9,7 +9,7 @@ function form_em_branco() {
 }
 
 function jogo_em_branco() {
-    return empty($_POST['jogo'] || empty($_POST['nota']));
+    return empty($_POST['jogo']) || empty($_POST['nota']);
 }
 
 
@@ -24,20 +24,20 @@ function tratar_erros () {
     switch($code) {
 
         case 0: 
-            $erro = '<h3>Você não tem permissão para acessar a página de destino</h3>';
+            $erro = '<h3>Você não n deveria tentar acessar essaa página 0-0</h3>';
             break;
         
         case 1:
-            $erro = '<h3>Usuário ou senha inválidos. Tente novamente</h3>';
+            $erro = '<h3>Usuário ou senha estão errados fih. Tente novamente mais tarde!</h3>';
             break;
 
         case 2:
-            $erro = '<h2>Por favor, preencha todos os campos do form</h2>';
+            $erro = '<h2>Preenche o Form todo né pô</h2>';
             break;
 
         case 3:
             $erro = '<h3>Erro ao executar consulta ao banco de dados. 
-                    Tente novamente mais tarde, ou contate o suporte</h3>';
+                    Tente novamente mais tarde, ou contate o suporte kkkkkkk</h3>';
             break;
 
         case 4:
@@ -51,7 +51,7 @@ function tratar_erros () {
             break;
 
         case 6:
-        $erro = '<h3>Email ja cadastrado!</h3>';
+        $erro = '<h3>Email ja cadastrado! Doido usa outro</h3>';
 
         break;
 
