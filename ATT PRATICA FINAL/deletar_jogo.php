@@ -1,4 +1,4 @@
-<?php require_once 'cadeado.php';
+<?php require_once 'lock.php';
 
     if (!isset($_GET['id_jogo'])) {
         header('location:home.php?code=0');

@@ -8,16 +8,16 @@
 <body class="container">
     <h1>Editar Jogo</h1>
     <?php
-        require_once 'cadeado.php'; // Garante que o usuário está autenticado/logado
+        require_once 'lock.php'; // Garante que o usuário está autenticado/logado
         require_once 'funcoes.php';
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (jogo_em_branco()) {
+            if (blankGame()) {
                 header('location:home.php?code=2');
                 die;
             }
 
-            if (!campo_eh_num()) {//Verifica se o campo "nota" n é numerico
+            if (!NumInput()) {//Verifica se o campo "nota" n é numerico
                 header('location:home.php?code=7');
                 die;
             }

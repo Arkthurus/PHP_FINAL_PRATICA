@@ -1,7 +1,7 @@
 <?php require_once 'funcoes.php';
 
     // se tentarmos acessar esta página via GET
-    if (form_nao_enviado()) {
+    if (formNotSent()) {
         // redireciona para a 'index' enviando o codigo de erro 0
         header('location:cadastrarUser.php?code=0');
         die;

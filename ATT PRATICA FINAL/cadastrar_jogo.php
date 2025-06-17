@@ -1,18 +1,18 @@
-<?php require_once 'cadeado.php'; // Permite usar variaveis de SESSION do "user" logado
+<?php require_once 'lock.php'; // Permite usar variaveis de SESSION do "user" logado
 
     require_once 'funcoes.php';
 
-    if(form_nao_enviado()){
+    if(formNotSent()){
         header('location:home.php?code=0');
         die;
     }
 
-    if(jogo_em_branco()) {
+    if(blankGame()) {
         header('location:home.php?code=2');
         die;
     }
 
-    if (!campo_eh_num()) {//Verifica se o campo n "nota" é numerico
+    if (!NumInput()) {//Verifica se o campo n "nota" é numerico
         header('location:home.php?code=7');
         die;
     }    

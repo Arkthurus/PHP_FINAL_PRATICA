@@ -16,7 +16,7 @@
     
        require_once 'funcoes.php';
 
-       tratar_erros();   
+       errorsTreatment();   
     
     ?>
 

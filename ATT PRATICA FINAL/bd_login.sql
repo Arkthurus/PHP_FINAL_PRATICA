@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12/06/2025 às 19:00
+-- Tempo de geração: 17/06/2025 às 16:37
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -32,8 +32,26 @@ USE `bd_login`;
 CREATE TABLE `tb_jogos` (
   `id_jogo` int(11) NOT NULL,
   `jogo` varchar(100) NOT NULL,
+  `nota` int(11) NOT NULL,
   `usuario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `tb_jogos`
+--
+
+INSERT INTO `tb_jogos` (`id_jogo`, `jogo`, `nota`, `usuario_id`) VALUES
+(14, 'Minecraft 2', 8, 2),
+(15, 'Raft', 7, 2),
+(16, 'Doom Eternal', 9, 2),
+(25, 'Red Dead Redemption', 9, 2),
+(28, 'Subnautica', 1000, 1),
+(29, 'Wuthering Waves', 8, 1),
+(30, 'ResidentEvil 2 RE', 9, 1),
+(31, 'ResidentEvil 4 RE', 100, 1),
+(32, 'Metal Gear Rising Revenge', 9, 1),
+(33, 'Terraria ', 7, 2),
+(35, 'Dead by Daylight', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -53,10 +71,8 @@ CREATE TABLE `tb_usuarios` (
 --
 
 INSERT INTO `tb_usuarios` (`id`, `usuario`, `senha`, `email`) VALUES
-(1, 'admin', 'admin', 'admin@'),
-(2, 'teste1', 'teste1', 'teste1@'),
-(3, 'teste2', 'teste2', 'teste2@'),
-(4, 'teste3', 'teste3', 'teste3@');
+(1, 'admin', 'admin', 'admin@admin'),
+(2, 'teste1', 'teste1', 'teste1@teste1');
 
 --
 -- Índices para tabelas despejadas
@@ -66,6 +82,7 @@ INSERT INTO `tb_usuarios` (`id`, `usuario`, `senha`, `email`) VALUES
 -- Índices de tabela `tb_jogos`
 --
 ALTER TABLE `tb_jogos`
+  ADD PRIMARY KEY (`id_jogo`),
   ADD KEY `jogos_usuario` (`usuario_id`);
 
 --
@@ -79,10 +96,16 @@ ALTER TABLE `tb_usuarios`
 --
 
 --
+-- AUTO_INCREMENT de tabela `tb_jogos`
+--
+ALTER TABLE `tb_jogos`
+  MODIFY `id_jogo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
 -- AUTO_INCREMENT de tabela `tb_usuarios`
 --
 ALTER TABLE `tb_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restrições para tabelas despejadas
@@ -92,7 +115,7 @@ ALTER TABLE `tb_usuarios`
 -- Restrições para tabelas `tb_jogos`
 --
 ALTER TABLE `tb_jogos`
-  ADD CONSTRAINT `jogos_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `tb_usuarios` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `jogos_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `tb_usuarios` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

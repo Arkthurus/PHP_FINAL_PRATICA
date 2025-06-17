@@ -23,12 +23,12 @@
     }
         require_once 'funcoes.php';
 
-        tratar_erros();   
+        errorsTreatment();   
     
     ?>
 
 
-    <form action="verificar.php" method="post">
+    <form action="verify.php" method="post">
 
         <p>
             <label for="usuario">Usuário:</label><br>

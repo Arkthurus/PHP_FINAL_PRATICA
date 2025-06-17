@@ -1,23 +1,23 @@
 <?php 
 
-function form_nao_enviado() {
+function formNotSent() {
     return $_SERVER['REQUEST_METHOD'] !== 'POST';
 }
 
-function form_em_branco() {
+function blankForm() {
     return empty($_POST['usuario']) || empty($_POST['senha']);
 }
 
-function jogo_em_branco() {
+function blankGame() {
     return empty($_POST['jogo']) || empty($_POST['nota']);
 }
 
-function campo_eh_num(){
+function NumInput(){
     return ctype_digit($_POST['nota']);
 }
 
 
-function tratar_erros () {
+function errorsTreatment() {
 
     if (!isset($_GET['code'])) {
         return;

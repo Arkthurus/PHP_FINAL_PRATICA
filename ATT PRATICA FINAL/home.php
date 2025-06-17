@@ -1,4 +1,4 @@
-<?php require_once 'cadeado.php'; ?>
+<?php require_once 'lock.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -36,7 +36,7 @@
 
         require_once 'funcoes.php';
 
-        tratar_erros();
+        errorsTreatment();
 
         require_once 'conexao.php';
 
