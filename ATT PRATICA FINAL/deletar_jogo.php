@@ -2,7 +2,7 @@
 
     if (!isset($_GET['id_jogo'])) {
         header('location:home.php?code=0');
-        exit;
+        die;
     }
 
     $id_jogo = (int)$_GET['id_jogo']; // id do jogo vindo via GET
@@ -22,7 +22,7 @@
 
     if ($linhas <= 0) {
         header('location:home.php?code=3');
-        exit;
+        die;
     }
 
     header('location:home.php');   

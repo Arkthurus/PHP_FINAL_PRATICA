@@ -53,12 +53,12 @@
         $linhas = mysqli_affected_rows($conn);
 
         if ($linhas < 0) {
-            exit("<h3>Erro ao buscar jogo do usuário. 
+            die("<h3>Erro ao buscar jogo do usuário. 
             Tente novamente mais tarde, ou contate o suporte</h3>");
         }
 
         if ($linhas == 0) {
-            exit("<h3>Você não tem jogos cadastrados!</h3>");
+            die("<h3>Você não tem jogos cadastrados!</h3>");
         }
 
         echo '<div class="row">';

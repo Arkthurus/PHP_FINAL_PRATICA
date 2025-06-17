@@ -4,13 +4,13 @@
     if (form_nao_enviado()) {
         // redireciona para a 'index' enviando o codigo de erro 0
         header('location:index.php?code=0');
-        exit;
+        die;
     }
 
     if (form_em_branco()) { // se houver campos em branco no form
         // redireciona para a 'index' enviando o codigo de erro 2
         header('location:index.php?code=2');
-        exit;
+        die;
     }
 
     $usuario   = $_POST['usuario'];
@@ -26,14 +26,14 @@
 
     if(!$stmt) {
         header('location:index.php?code=3'); // erro ao preparar a consulta
-        exit;
+        die;
     }
 
     mysqli_stmt_bind_param($stmt, 'ss', $usuario, $senha);
     
     if (!mysqli_execute($stmt)){
         header('location:index.php?code=5'); // erro ao executar comando
-        exit;
+        die;
     }
 
     // obriga o statement a registrar o numero de linhas afetadas pelo comando sql executado
@@ -45,7 +45,7 @@
     // linhas menor ou igual a zero significa que usuario ou senha estão inválidos
     if ($linhas <= 0) {
         header('location:index.php?code=1'); // usuário ou senha inválidos
-        exit;
+        die;
     }
 
     mysqli_stmt_bind_result($stmt, $id, $usuario, $senha, $email); 

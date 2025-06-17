@@ -12,6 +12,10 @@ function jogo_em_branco() {
     return empty($_POST['jogo']) || empty($_POST['nota']);
 }
 
+function campo_eh_num(){
+    return ctype_digit($_POST['nota']);
+}
+
 
 function tratar_erros () {
 
@@ -51,10 +55,15 @@ function tratar_erros () {
             break;
 
         case 6:
-        $erro = '<h3 style="color: red";>Email ja cadastrado! use outro</h3>';
+            $erro = '<h3 style="color: red";>Email ja cadastrado! use outro</h3>';
 
         break;
+        
+        case 7:
+            $erro = '<h3 style="color: red";>O Campo nota deve ser um Numero</h3>';
 
+        break;
+        
         default:
             $erro = "";
             break;

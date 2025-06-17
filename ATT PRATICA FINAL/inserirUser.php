@@ -4,12 +4,12 @@
     if (form_nao_enviado()) {
         // redireciona para a 'index' enviando o codigo de erro 0
         header('location:cadastrarUser.php?code=0');
-        exit;
+        die;
     }
 
     if (empty($_POST["usuarioC"]) || empty($_POST["senhaC"]) || empty($_POST["emailC"])) { // se houver campos em branco no form                    
         header('location:cadastrarUser.php?code=2');// redireciona para a 'index' enviando o codigo de erro 2
-        exit;
+        die;
     }
     require_once 'conexao.php';
 
@@ -28,13 +28,13 @@
     // $emailC é a variável que contém o email a ser verificado
     if(!mysqli_stmt_bind_param($stmt, 's', $emailC)) {
         header('location:index.php?code=3');
-        exit;
+        die;
     }
 
     // Executa a declaração preparada no banco de dados
     if(!mysqli_stmt_execute($stmt)) {
         header('location:index.php?code=3');
-        exit;
+        die;
     }
 
     // Obtém o resultado da consulta para podermos trabalhar com ele
@@ -43,10 +43,10 @@
     // Verifica se a consulta retornou algum registro
     // num_rows conta quantas linhas foram retornadas
     if ($resultado->num_rows > 0) {
-    // Se entrou aqui, significa que encontrou pelo menos 1 registro com esse email
-    echo "<h1 style='color: red'>Email informado já está cadastrado no Banco</h1>";// Exibe uma mensagem na tela (útil para debug)
-    header("location:cadastrarUser.php?code=6");// Redireciona para a página de cadastro com um código de erro (6)
-    die;
+        // Se entrou aqui, significa que encontrou pelo menos 1 registro com esse email
+        echo "<h1 style='color: red'>Email informado já está cadastrado no Banco</h1>";// Exibe uma mensagem na tela (útil para debug)
+        header("location:cadastrarUser.php?code=6");// Redireciona para a página de cadastro com um código de erro (6)
+        die;
     }
     
     $query = "INSERT INTO tb_usuarios (usuario, senha, email)
@@ -56,7 +56,7 @@
 
     if(!$stmtInsert) {
         header('location:cadastrarUser.php?code=3'); 
-        exit;
+        die;
     }
 
     if(!mysqli_stmt_bind_param($stmtInsert, 'sss', $usuarioC, $senhaC, $emailC)){

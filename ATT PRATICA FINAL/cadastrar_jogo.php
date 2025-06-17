@@ -4,13 +4,18 @@
 
     if(form_nao_enviado()){
         header('location:home.php?code=0');
-        exit;
+        die;
     }
 
     if(jogo_em_branco()) {
         header('location:home.php?code=2');
-        exit;
+        die;
     }
+
+    if (!campo_eh_num()) {//Verifica se o campo n "nota" é numerico
+        header('location:home.php?code=7');
+        die;
+    }    
 
     $jogo = $_POST['jogo']; // jogo vindo do form (POST)
     $nota = $_POST['nota']; // nota vindo do form
@@ -27,17 +32,17 @@
 
     if (!$stmt) {
         header('location:home.php?code=3');
-        exit;
+        die;
     }
 
     if(!mysqli_stmt_bind_param($stmt, 'sii', $jogo, $nota, $id)) {
         header('location:home.php?code=3');
-        exit;
+        die;
     }
 
     if(!mysqli_stmt_execute($stmt)) {
         header('location:home.php?code=3');
-        exit;
+        die;
     }
 
     header('location:home.php');

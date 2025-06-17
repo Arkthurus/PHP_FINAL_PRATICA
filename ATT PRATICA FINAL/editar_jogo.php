@@ -11,14 +11,22 @@
         require_once 'cadeado.php'; // Garante que o usuário está autenticado/logado
         require_once 'funcoes.php';
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && jogo_em_branco()) {
-            header('location:home.php?code=2');
-            exit;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (jogo_em_branco()) {
+                header('location:home.php?code=2');
+                die;
+            }
+
+            if (!campo_eh_num()) {//Verifica se o campo "nota" n é numerico
+                header('location:home.php?code=7');
+                die;
+            }
+
         }
 
         if (!isset($_GET['id_jogo'])) { // Verifica se o parâmetro id_jogo foi passado via GET
             header('location:home.php?code=0'); // Redireciona para home.php com código de erro se não houver id_jogo
-            exit; // Encerra a execução do script
+            die; // Encerra a execução do script
         }
 
         $id_jogo = (int)$_GET['id_jogo']; // Obtém o id_jogo da URL e converte para inteiro
@@ -38,12 +46,12 @@
 
             $linhas = mysqli_affected_rows($conn); // Verifica quantas linhas foram afetadas pelo UPDATE
 
-            if ($linhas <= 0) { // Se nenhuma linha foi alterada, algo deu errado
-                header('location:home.php?code=3'); // Redireciona para home.php com código de erro 3
-                exit; // Encerra o script
+            if ($linhas <= 0) { //nenhuma linha foi alterada(n houve modificação)
+                header('location:home.php'); // Redireciona para home.php
+                die; // Encerra o script
             }
-            header('location:home.php'); // Se deu certo, redireciona para home.php sem erro
-            exit; // Encerra o script
+            header('location:home.php'); // Se deu certo, redireciona para home.php com as modificações
+            die; // Encerra o script
         }
 
         // Buscar o nome atual do jogo para mostrar no formulário
@@ -53,7 +61,7 @@
 
         if (!$jogo) { // Se não encontrar o jogo, algo está errado (jogo não existe ou não pertence ao usuário)
             header('location:home.php?code=4'); // Redireciona para home.php com código de erro 4
-            exit; // Encerra o script
+            die; // Encerra o script
         }
     ?>
     <form method="post">
