@@ -25,7 +25,7 @@
         </p>
         <p>
             <label for="nota">Nota do Jogo: </label>
-            <input type="text" name="nota" id="nota" style="margin-left: 10px;">
+            <input type="number" name="nota" id="nota" style="margin-left: 10px;">
         </p>
         <button type="submit" class="btn btn-primary btn-sm">Cadastrar</button>
     </form>
@@ -44,7 +44,7 @@
 
         $id = $_SESSION['id'];
 
-        // TODO : EXIBIR TAREFAS DO USUÁRIO LOGADO
+        // EXIBIR JOGOS DO USUÁRIO LOGADO
         $sql = "SELECT id_jogo, jogo, nota FROM tb_jogos 
                 WHERE usuario_id = $id";
 

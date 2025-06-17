@@ -24,8 +24,7 @@
         header('location:home.php?code=3');
         exit;
     }
-    // se não houver intercorrêcias, apenas retornarmos para a home.php
-    // sem códigos de erro
+
     header('location:home.php');   
 
 ?>

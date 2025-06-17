@@ -5,8 +5,8 @@ TEMA: Biblioteca de Jogos
 
 USUAIOS DISPONÍVEIS: {
 
-        1: usuario =  admin, senha =  admin, email =  admin@;
-        2: usuario = teste1, senha = teste1, email = teste1@;
+        1: usuario =  admin, senha =  admin, email =   admin@admin;
+        2: usuario = teste1, senha = teste1, email = teste1@teste1;
 
     }
 

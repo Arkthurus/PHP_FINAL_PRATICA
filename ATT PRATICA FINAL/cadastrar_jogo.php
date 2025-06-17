@@ -1,4 +1,4 @@
-<?php require_once 'cadeado.php';
+<?php require_once 'cadeado.php'; // Permite usar variaveis de SESSION do "user" logado
 
     require_once 'funcoes.php';
 

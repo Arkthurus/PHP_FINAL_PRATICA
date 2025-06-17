@@ -24,34 +24,34 @@ function tratar_erros () {
     switch($code) {
 
         case 0: 
-            $erro = '<h3>Você não n deveria tentar acessar essaa página 0-0</h3>';
+            $erro = '<h3 style="color: red";>Você não n deveria tentar acessar essaa página 0-0</h3>';
             break;
         
         case 1:
-            $erro = '<h3>Usuário ou senha estão errados fih. Tente novamente mais tarde!</h3>';
+            $erro = '<h3 style="color: red";>Usuário ou senha estão errados fih.</h3>';
             break;
 
         case 2:
-            $erro = '<h2>Preenche o Form todo né pô</h2>';
+            $erro = '<h3 style="color: red";>Preenche o Form todo né pô</h3>';
             break;
 
         case 3:
-            $erro = '<h3>Erro ao executar consulta ao banco de dados. 
+            $erro = '<h3 style="color: red";>Erro ao executar consulta ao banco de dados. 
                     Tente novamente mais tarde, ou contate o suporte kkkkkkk</h3>';
             break;
 
         case 4:
-            $erro = '<h3>Erro ao "Bindar parametros"</h3>';
+            $erro = '<h3 style="color: red";>>Erro ao "Bindar parametros"</h3>';
 
             break;
 
         case 5:
-            $erro = '<h3>Erro ao executar stmt SQL</h3>';
+            $erro = '<h3 style="color: red";>Erro ao executar stmt SQL</h3>';
 
             break;
 
         case 6:
-        $erro = '<h3>Email ja cadastrado! Doido usa outro</h3>';
+        $erro = '<h3 style="color: red";>Email ja cadastrado! use outro</h3>';
 
         break;
 

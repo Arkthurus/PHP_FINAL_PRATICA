@@ -34,7 +34,7 @@
         </p>
         <p>
             <label for="emailC">Email</label><br>
-            <input type="text" name="emailC" id="emailC">
+            <input type="email" name="emailC" id="emailC">
         </p>
         <button type="submit" class="btn btn-success">Cadastrar</button>
 
